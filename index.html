@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Salsamentaria San Pablo | El sabor que reúne a todos</title>
+
+    <meta name="description" content="Salsamentaria San Pablo. Carnes frías, quesos, embutidos, desayunos, picadas y productos para tus momentos especiales.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f1e7;
+            color: #2b211c;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #5a1118;
+            color: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e5c06d;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                linear-gradient(rgba(50, 10, 10, .65), rgba(50, 10, 10, .65)),
+                url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #e5c06d;
+            color: #3a1715;
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 70px 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #5a1118;
+            margin-bottom: 10px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.08);
+            font-size: 18px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,.08);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: #5a1118;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .special {
+            background: #5a1118;
+            color: white;
+            text-align: center;
+        }
+
+        .special h2 {
+            color: #e5c06d;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .service {
+            border: 1px solid rgba(255,255,255,.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.08);
+        }
+
+        footer {
+            background: #2b1513;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 27px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.3);
+            z-index: 2000;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Salsamentaria San Pablo
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#categorias">Productos</a>
+        <a href="#especiales">Eventos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>El sabor que reúne a todos</h1>
+
+            <p>
+                Productos de calidad para tus desayunos,
+                cenas, reuniones y momentos especiales.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#productos" class="btn btn-primary">
+                    Ver productos
+                </a>
+
+                <a href="#especiales" class="btn btn-secondary">
+                    Cotizar mi evento
+                </a>
+
+                <a href="https://wa.me/573000000000"
+                   class="btn btn-secondary"
+                   target="_blank">
+                    Pedir por WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="categorias">
+
+        <div class="section-title">
+
+            <h2>Nuestras categorías</h2>
+
+            <p>
+                Encuentra todo lo que necesitas para compartir.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category">🥩 Carnes frías</div>
+            <div class="category">🧀 Quesos</div>
+            <div class="category">🌭 Embutidos</div>
+            <div class="category">🍳 Desayunos</div>
+            <div class="category">🍽️ Cenas especiales</div>
+            <div class="category">🥓 Picadas</div>
+            <div class="category">🥪 Pasabocas</div>
+            <div class="category">🎉 Eventos</div>
+            <div class="category">🎁 Combos</div>
+        </div>
+
+    </section>
+
+
+    <section id="productos">
+
+        <div class="section-title">
+
+            <h2>Productos destacados</h2>
+
+            <p>
+                Algunos de nuestros productos.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Producto destacado</h3>
+
+                    <p>
+                        Información provisional del producto.
+                    </p>
+
+                    <div class="price">
+                        Precio próximamente
+                    </div>
+
+                    <a href="https://wa.me/573000000000"
+                       class="btn btn-primary"
+                       target="_blank">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Quesos</h3>
+
+                    <p>
+                        Variedad de quesos para tus comidas.
+                    </p>
+
+                    <div class="price">
+                        Precio próximamente
+                    </div>
+
+                    <a href="https://wa.me/573000000000"
+                       class="btn btn-primary"
+                       target="_blank">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Picadas</h3>
+
+                    <p>
+                        Opciones ideales para compartir.
+                    </p>
+
+                    <div class="price">
+                        Precio próximamente
+                    </div>
+
+                    <a href="https://wa.me/573000000000"
+                       class="btn btn-primary"
+                       target="_blank">
+                        Comprar
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="special" id="especiales">
+
+        <div class="section-title">
+
+            <h2>¿Tienes un evento?</h2>
+
+            <p>
+                Nosotros nos encargamos del sabor.
+            </p>
+
+        </div>
+
+
+        <p>
+            Preparamos desayunos, cenas, almuerzos,
+            picadas, tablas de quesos y carnes frías,
+            refrigerios y opciones para eventos.
+        </p>
+
+
+        <div class="services">
+
+            <div class="service">Desayunos especiales</div>
+            <div class="service">Cenas</div>
+            <div class="service">Almuerzos</div>
+            <div class="service">Picadas</div>
+            <div class="service">Tablas de quesos</div>
+            <div class="service">Catering</div>
+            <div class="service">Eventos empresariales</div>
+            <div class="service">Celebraciones</div>
+
+        </div>
+
+        <br><br>
+
+        <a href="https://wa.me/573000000000"
+           class="btn btn-primary"
+           target="_blank">
+            Solicitar cotización
+        </a>
+
+    </section>
+
+
+    <section id="contacto" class="contact">
+
+        <div class="section-title">
+
+            <h2>Contáctanos</h2>
+
+            <p>
+                Estamos listos para atenderte.
+            </p>
+
+        </div>
+
+
+        <div class="contact-info">
+
+            <p>📱 WhatsApp: próximamente</p>
+
+            <p>📍 Bogotá, Colombia</p>
+
+            <p>🕐 Horario: próximamente</p>
+
+            <br>
+
+            <p>
+                Síguenos en nuestras redes sociales.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Salsamentaria San Pablo
+    </p>
+
+    <p>
+        Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<a href="https://wa.me/573000000000"
+   class="whatsapp"
+   target="_blank"
+   aria-label="Contactar por WhatsApp">
+    ☎
+</a>
+
+</body>
+</html>
