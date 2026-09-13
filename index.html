@@ -34,11 +34,12 @@
             z-index: 1000;
         }
 
-        .logo img {
+        /* Clase para hacer el logo redondo sin deformarlo */
+        .logo-redondo {
+            width: 55px;
             height: 55px;
-            width: auto;
-            max-width: 180px;
-            object-fit: contain;
+            border-radius: 50%;
+            object-fit: cover;
             display: block;
         }
 
@@ -248,7 +249,6 @@
         }
 
         @media (max-width: 700px) {
-
             header {
                 flex-direction: column;
                 gap: 15px;
@@ -276,7 +276,7 @@
 <header>
 
     <div class="logo">
-    <img src="logo%20San%20PabloA.png" alt="Salsamentaria San Pablo A." style="height:48px;width:auto;max-width:140px;object-fit:contain;">
+        <img src="logo%20San%20PabloA.png" alt="Salsamentaria San Pablo A." class="logo-redondo">
     </div>
 
     <nav>
@@ -371,7 +371,7 @@
 
             <div class="product">
 
-                <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80">
+                <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80" alt="Producto destacado">
 
                 <div class="product-info">
 
@@ -398,7 +398,7 @@
 
             <div class="product">
 
-                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=800&q=80">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=800&q=80" alt="Quesos">
 
                 <div class="product-info">
 
@@ -425,7 +425,7 @@
 
             <div class="product">
 
-                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80">
+                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80" alt="Picadas">
 
                 <div class="product-info">
 
@@ -517,7 +517,7 @@
 
             <p>📍 Carrera 77 L No. 53-05 Sur, Catalina 2 - Kennedy, Bogotá</p>
 
-            <p>🕐 Lunes a sábado: 9:00 a. m. - 9:00 p. m.<br>
+            <p>🕐 Lunes a sábado: 9:00 a. m. - 9:00 p. m.</p>
             <p>🕐 Domingos: 8:00 a. m. - 8:30 p. m.</p>
 
             <br>
